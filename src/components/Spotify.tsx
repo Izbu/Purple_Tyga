@@ -43,9 +43,9 @@ export function Spotify() {
 
           <div>
             <h3 className="font-display text-4xl font-black uppercase tracking-tight text-white text-glow drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-              Ride The Lightning
+              Ride the Lightning
             </h3>
-            <p className="mt-1 text-sm text-white/60">Metallica</p>
+            <p className="mt-1 text-sm text-white/60">Warren Zeiders</p>
           </div>
 
           <div className="ml-6 flex h-10 items-end gap-1">
@@ -64,8 +64,8 @@ export function Spotify() {
             <div className="h-full w-2/3 bg-gradient-purple shadow-[0_0_10px_#a620d0]" />
           </div>
           <div className="mt-2 flex justify-between font-display text-[10px] tracking-widest text-white/40">
-            <span>02:48</span>
-            <span>06:36</span>
+            <span>01:24</span>
+            <span>03:06</span>
           </div>
         </div>
       </motion.div>
