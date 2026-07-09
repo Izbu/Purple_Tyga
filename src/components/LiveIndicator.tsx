@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
 import { Radio } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function LiveIndicator() {
-  const isLive = false; // could be wired to API later
+  const [isLive, setIsLive] = useState(false);
+
+  useEffect(() => {
+    async function check() {
+      try {
+        const res = await fetch("/api/live");
+        const data = await res.json();
+        setIsLive(data.isLive);
+      } catch {
+        setIsLive(false);
+      }
+    }
+
+    check();
+    const interval = setInterval(check, 60_000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.a
-      href="https://www.youtube.com/@PurpleTyga"
+      href="https://www.youtube.com/@PurpleTyga/live"
       target="_blank"
       rel="noreferrer"
       initial={{ opacity: 0, y: 20 }}
@@ -25,7 +43,7 @@ export function LiveIndicator() {
       </span>
       <Radio size={14} className="text-white/80" />
       <span className="font-display text-[10px] font-bold uppercase tracking-[0.3em] text-white">
-        {isLive ? "Live Now" : "Offline — New Content Soon"}
+        {isLive ? "Live Now — Watch" : "Offline — New Content Soon"}
       </span>
     </motion.a>
   );
