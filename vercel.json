@@ -1,3 +1,5 @@
 {
+  "buildCommand": "NITRO_PRESET=static npm run build",
+  "outputDirectory": ".output/public",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
